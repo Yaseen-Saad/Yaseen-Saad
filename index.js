@@ -30,8 +30,8 @@ app.use((req, res, next) => {
 
 app.get('/lastbigthing', async (req, res) => {
   try {
-    const bigThings = fs.readFileSync("./data/bigthings.json");
-    res.status(200).json(JSON.parse(bigThings).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())[0]);
+    const bigThings = JSON.parse(fs.readFileSync("./data/bigthings.json")).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    res.status(200).json(bigThings.slice(0, bigThings[0].count ? bigThings[0].count : 1));
   } catch (error) {
     console.error('Error fetching scores:', error);
     res.status(500).send({ message: 'Internal server error', error: error.message });
@@ -44,6 +44,16 @@ app.get('/state', async (req, res) => {
   } catch (error) {
     console.error('Error fetching scores:', error);
     res.status(500).send({ message: 'Internal server error', error: error.message });
+  }
+});
+
+
+// Route to Render Instructions Page
+app.get('/yaseenverse', async (req, res) => {
+  try {
+    res.render('yaseenverse');
+  } catch (err) {
+    res.status(500).send('Error retrieving instructions');
   }
 });
 
