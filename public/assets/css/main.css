@@ -86,6 +86,16 @@ body {
   color: #fff;
   position: relative;
 }
+body container {
+  font-size: 20rem;
+  position: fixed;
+  z-index: 11;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  color: rgba(255, 255, 255, 0.5);
+  pointer-events: none;
+}
 body #overlay {
   position: fixed;
   top: 0;
@@ -235,12 +245,12 @@ body main section.lastblog > div article {
   align-items: center;
   flex-direction: column;
 }
+body main section.lastblog > div article h3 {
+  margin-bottom: 20px;
+}
 body main section.lastblog > div article section > * {
   width: 100%;
   text-align: start;
-}
-body main section.lastblog > div article section h3 {
-  padding: 20px;
 }
 body main section.landing {
   display: flex;
@@ -255,6 +265,9 @@ body main section.landing article span {
   display: block;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-style: italic;
+}
+body main section.landing article span#state {
+  margin-top: 10px;
 }
 body main section.landing img {
   max-width: 50%;

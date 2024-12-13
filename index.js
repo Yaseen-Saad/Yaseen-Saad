@@ -31,12 +31,18 @@ app.use((req, res, next) => {
 app.get('/lastbigthing', async (req, res) => {
   try {
     const bigThings = fs.readFileSync("./data/bigthings.json");
-    console.log(new Date(JSON.parse(bigThings)[0].date).getTime())
-    console.log()
-    res.status(200).json(JSON.parse(bigThings).sort((a, b) => new Date(b.date).getTime()-new Date(a.date).getTime())[0]);
+    res.status(200).json(JSON.parse(bigThings).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())[0]);
   } catch (error) {
     console.error('Error fetching scores:', error);
-
+    res.status(500).send({ message: 'Internal server error', error: error.message });
+  }
+});
+app.get('/state', async (req, res) => {
+  try {
+    const states = fs.readFileSync("./data/states.json");
+    res.status(200).json(JSON.parse(states).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())[0]);
+  } catch (error) {
+    console.error('Error fetching scores:', error);
     res.status(500).send({ message: 'Internal server error', error: error.message });
   }
 });

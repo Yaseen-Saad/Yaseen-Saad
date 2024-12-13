@@ -1,4 +1,4 @@
-document.querySelector("span#age")?.innerText ? document.querySelector("span#age").innerText = parseInt(Math.abs(new Date("11, March, 2008").getTime() - Date.now()) / 1000 / 60 / 60 / 24 / 365.25) : "";
+document.querySelector("span#age") ? document.querySelector("span#age").innerText = parseInt(Math.abs(new Date("11, March, 2008").getTime() - Date.now()) / 1000 / 60 / 60 / 24 / 365.25) : "";
 document.querySelectorAll('.sentence').forEach(quote => {
     quote.addEventListener("click", event => {
         const quote = event.target;
@@ -29,7 +29,11 @@ document.querySelector('#overlay').addEventListener('click', () => {
     overlay.style.pointerEvents = 'none';
 });
 
-
+fetch("/state").then(
+    res => res.json()
+).then(data => {
+    document.querySelector('span#state').innerText = "Currently: "+ data.thing
+})
 
 class Toast {
     constructor(containerId) {

@@ -23,7 +23,8 @@ h3 {
 h4 {
     font-size: 1.2rem;
 }
-a{
+
+a {
     color: #fff;
 }
 
@@ -94,6 +95,18 @@ body {
     background-color: #000;
     color: #fff;
     position: relative;
+
+    container {
+        font-size: 20rem;
+        position: fixed;
+        z-index: 11;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(-45deg);
+        color: rgba(255, 255, 255, 0.5);
+        pointer-events: none;
+
+    }
 
     #overlay {
         position: fixed;
@@ -261,15 +274,16 @@ body {
                         align-items: center;
                         flex-direction: column;
 
+                        h3 {
+                            margin-bottom: 20px;
+                        }
+
                         section {
                             >* {
                                 width: 100%;
                                 text-align: start;
                             }
 
-                            h3 {
-                                padding: 20px;
-                            }
                         }
                     }
                 }
@@ -288,6 +302,10 @@ body {
                         display: block;
                         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
                         font-style: italic;
+
+                        &#state {
+                            margin-top: 10px;
+                        }
                     }
                 }
 
