@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, './views'));
-app.use(express.static(path.join(__dirname, './public')));
+app.use(express.static(path.join(__dirname, '../public')));
 
 // CORS Configuration
 app.use((req, res, next) => {
