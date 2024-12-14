@@ -30,7 +30,7 @@ app.use((req, res, next) => {
 
 app.get('/lastbigthing', async (req, res) => {
   try {
-    const bigThings = JSON.parse(fs.readFileSync("../data/bigthings.json")).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    const bigThings = JSON.parse( fs.readFileSync(path.join(__dirname, '../data/bigthings.json'), 'utf8')).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
     res.status(200).json(bigThings.slice(0, bigThings[0].count ? bigThings[0].count : 1));
   } catch (error) {
     console.error('Error fetching scores:', error);
@@ -39,7 +39,7 @@ app.get('/lastbigthing', async (req, res) => {
 });
 app.get('/state', async (req, res) => {
   try {
-    const states = fs.readFileSync("../data/states.json");
+    const states = fs.readFileSync(path.join(__dirname, '../data/states.json'), 'utf8');
     console.log(states)
     res.status(200).json(JSON.parse(states).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())[0]);
   } catch (error) {
