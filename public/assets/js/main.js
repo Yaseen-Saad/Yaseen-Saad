@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 function updateNow() {
 
     const now = new Date();
-    const currentHour = (now.getHours() +1) % 24
+    const currentHour = (now.getUTCHours() +3) % 24
 
 
     const currentBar = document.querySelector(`span#bar:nth-child(${currentHour})`)

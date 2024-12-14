@@ -272,17 +272,23 @@ body main section p:not(.exception) {
   text-indent: 2rem;
 }
 body main section.lastblog > div {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 15px;
 }
 body main section.lastblog > div article {
-  width: 50%;
+  width: 100%;
   display: flex;
   align-items: center;
   flex-direction: column;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 body main section.lastblog > div article h3 {
   margin-bottom: 20px;
+}
+body main section.lastblog > div article section {
+  margin: 0 0 20px 0;
 }
 body main section.lastblog > div article section > * {
   width: 100%;
@@ -359,4 +365,19 @@ body main section.clock #clock-container #bars-container > span#bar span {
 }
 body main section.clock #clock-container #bars-container > span#bar:nth-child(-n+9) span {
   background-color: rgba(255, 255, 255, 0.4588235294);
+}
+body section.designer {
+  background-color: #fff;
+  padding: 0;
+  width: 100vw;
+  margin: 0;
+  color: #000;
+  display: block;
+  text-align: start;
+  font-family: auto;
+}
+body section.designer h2 {
+  text-align: start;
+  margin: 0;
+  padding: 0;
 }/*# sourceMappingURL=main.css.map */
