@@ -40,6 +40,7 @@ app.get('/lastbigthing', async (req, res) => {
 app.get('/state', async (req, res) => {
   try {
     const states = fs.readFileSync("./data/states.json");
+    console.log(states)
     res.status(200).json(JSON.parse(states).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())[0]);
   } catch (error) {
     console.error('Error fetching scores:', error);
