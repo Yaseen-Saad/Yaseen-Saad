@@ -19,6 +19,7 @@ app.use(cors());
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '../views'));
 app.use(express.static(path.join(__dirname, '../public')));
+const curerntThings = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/currentthings.json'), 'utf8'))
 
 // CORS Configuration
 app.use((req, res, next) => {
@@ -27,10 +28,9 @@ app.use((req, res, next) => {
   next();
 });
 
-
 app.get('/lastbigthing', async (req, res) => {
   try {
-    const bigThings = JSON.parse( fs.readFileSync(path.join(__dirname, '../data/bigthings.json'), 'utf8')).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    const bigThings = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/bigthings.json'), 'utf8')).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
     res.status(200).json(bigThings.slice(0, bigThings[0].count ? bigThings[0].count : 1));
   } catch (error) {
     console.error('Error fetching scores:', error);
@@ -42,6 +42,17 @@ app.get('/state', async (req, res) => {
     const states = fs.readFileSync(path.join(__dirname, '../data/states.json'), 'utf8');
     console.log(states)
     res.status(200).json(JSON.parse(states).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())[0]);
+  } catch (error) {
+    console.error('Error fetching scores:', error);
+    res.status(500).send({ message: 'Internal server error', error: error.message });
+  }
+});
+app.get('/currentbook', async (req, res) => {
+  try {
+    const currentBook = curerntThings.filter(thing=>thing.type == "book")[0];
+    console.log(currentBook);
+    
+    res.status(200).json(currentBook);
   } catch (error) {
     console.error('Error fetching scores:', error);
     res.status(500).send({ message: 'Internal server error', error: error.message });
