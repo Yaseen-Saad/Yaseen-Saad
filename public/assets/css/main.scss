@@ -3,6 +3,9 @@
     src: url('../fonts/THOERTIEN.ttf');
 }
 
+$timelineColor: #fff;
+$secColor: #333333;
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -96,7 +99,6 @@ a {
         filter: blur(5px);
         letter-spacing: 3px;
     }
-
 }
 
 section.loader {
@@ -127,7 +129,6 @@ section.loader {
     }
 }
 
-
 body {
     font-family: Arial, sans-serif;
     background-color: #000;
@@ -143,7 +144,6 @@ body {
         transform: translate(-50%, -50%) rotate(-45deg);
         color: rgba(255, 255, 255, 0.5);
         pointer-events: none;
-
     }
 
     #overlay {
@@ -225,7 +225,6 @@ body {
                 opacity: 1;
                 text-shadow: 0 0 10px #fff, 0 0 15px #fff, 0 0 45px #fff, 0 0 60px #fff;
             }
-
         }
     }
 
@@ -243,7 +242,7 @@ body {
         border-radius: 10px;
         box-shadow: 0 15px 35px rgba(0, 0, 0, 0.718);
         background: rgba(255, 255, 255, 0.2);
-        backdrop-filter: blur(3px);
+        filter: blur(3px);
         color: #fff;
         display: flex;
         justify-content: center;
@@ -293,7 +292,6 @@ body {
         section {
             margin-bottom: 100px;
 
-
             h2:not(.exception) {
                 margin-bottom: 50px;
                 padding: 20px;
@@ -307,6 +305,7 @@ body {
             }
 
             &.lastblog {
+
                 >div {
                     display: grid;
                     grid-template-columns: repeat(2, 1fr);
@@ -373,7 +372,9 @@ body {
             }
 
             &.clock {
+
                 #clock-container {
+
                     #bars-container {
                         display: flex;
                         justify-content: space-between;
@@ -411,6 +412,7 @@ body {
                             }
 
                             &.night {
+
                                 &::after {
                                     background-image: url("/assets/images/moon.png");
                                 }
@@ -423,6 +425,7 @@ body {
                             }
 
                             &:nth-child(-n+9) {
+
                                 span {
                                     background-color: #ffffff75;
                                 }
@@ -432,8 +435,172 @@ body {
                 }
             }
 
+            &.carrier {
+                // article {
+                //     display: flex;
+                //     justify-content: center;
+
+                //     .timeline {
+                //         margin: 20px auto;
+                //         padding: 20px;
+
+                //         .card {
+                //             position: relative;
+                //             max-width: 400px;
+
+                //             &::before {
+                //                 content: "";
+                //                 position: absolute;
+                //                 width: 50%;
+                //                 border: solid $timelineColor;
+                //             }
+
+
+
+                //             /* Setting the top and bottom to "-5px" because earlier it was out of a pixel in mobile devices */
+                //             @media only screen and (max-width: 400px) {
+                //                 .card:nth-child(odd)::before {
+                //                     top: -5px;
+                //                     bottom: -5px;
+                //                 }
+                //             }
+
+                //             &:first-child::before {
+                //                 border-top: 0;
+                //                 border-top-left-radius: 0;
+                //             }
+
+                //             &:last-child:nth-child(odd)::before {
+                //                 border-bottom: 0;
+                //                 border-bottom-left-radius: 0;
+                //             }
+
+                //             &:last-child:nth-child(even)::before {
+                //                 border-bottom: 0;
+                //                 border-bottom-right-radius: 0;
+                //             }
+
+
+                //             .info {
+                //                 display: flex;
+                //                 flex-direction: column;
+                //                 background: #333;
+                //                 color: gray;
+                //                 border-radius: 10px;
+                //                 padding: 10px;
+                //             }
+
+                //             .title {
+                //                 color: $timelineColor;
+                //                 position: relative;
+                //             }
+
+                //             .title::before {
+                //                 content: "";
+                //                 position: absolute;
+                //                 width: 10px;
+                //                 height: 10px;
+                //                 background: white;
+                //                 border-radius: 999px;
+                //                 border: 3px solid $timelineColor;
+                //             }
+
+                //             &:nth-child(even) {
+                //                 padding: 30px 30px 30px 0;
+
+
+                //                 >.info>.title::before {
+                //                     right: -45px;
+                //                 }
+
+                //                 &::before {
+                //                     right: 0;
+                //                     top: 0;
+                //                     bottom: 0;
+                //                     border-width: 5px 5px 5px 0;
+                //                     border-radius: 0 50px 50px 0;
+                //                 }
+                //             }
+
+                //             &:nth-child(odd) {
+                //                 padding: 30px 0 30px 30px;
+
+                //                 >.info>.title::before {
+                //                     left: -45px;
+                //                 }
+
+                //                 &::before {
+                //                     left: 0px;
+                //                     top: -4.5px;
+                //                     bottom: -4.5px;
+                //                     border-width: 5px 0 5px 5px;
+                //                     border-radius: 50px 0 0 50px;
+                //                 }
+                //             }
+                //         }
+                //     }
+                // }
+                article {
+                    display: flex;
+                    justify-content: center;
+
+                    /* Timeline */
+                    .timeline {
+                        border-left: 4px solid #fff;
+                        border-bottom-right-radius: 4px;
+                        border-top-right-radius: 4px;
+                        margin: 50px auto;
+                        position: relative;
+                        padding: 50px;
+                        list-style: none;
+                        max-width: 80%;
+
+                        .event {
+                            border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+                            padding-bottom: 25px;
+                            margin-bottom: 50px;
+                            position: relative;
+
+                            &:last-of-type {
+                                padding-bottom: 0;
+                                margin-bottom: 0;
+                                border: none;
+                            }
+
+                            &::before,
+                            &::after {
+                                position: absolute;
+                                display: block;
+                                top: 0;
+                            }
+
+                            &::before {
+                                left: -217.5px;
+                                color: rgba(255, 255, 255, 0.4);
+                                content: attr(data-date);
+                                text-align: right;
+                                font-weight: 100;
+                                min-width: 120px;
+                                font-family: 'Saira', sans-serif;
+                            }
+
+                            &::after {
+                                box-shadow: 0 0 0 4px #fff;
+                                left: -57.85px;
+                                background: #313534;
+                                border-radius: 50%;
+                                height: 11px;
+                                width: 11px;
+                                content: "";
+                                top: 5px;
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
+
     section.designer {
         background-color: #fff;
         padding: 0;
@@ -450,5 +617,4 @@ body {
             padding: 0;
         }
     }
-
 }

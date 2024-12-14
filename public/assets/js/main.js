@@ -24,9 +24,7 @@ const toast = new Toast("toast-container");
 function updateNow() {
 
     const now = new Date();
-    const currentHour = (now.getUTCHours() + 3) % 24
-
-
+    const currentHour = (now.getUTCHours() + 2) % 24 ? (now.getUTCHours() + 2) % 24 : 24
     const currentBar = document.querySelector(`span#bar:nth-child(${currentHour})`)
     const prev = currentBar.previousElementSibling;
     currentBar.classList.add("active")
@@ -34,7 +32,6 @@ function updateNow() {
     if (currentHour <= 9) {
         currentBar.classList.add("night")
     }
-
     currentBar.querySelector('span').style.height = "100%"
     if (prev) {
         prev.querySelector('span').style.height = "70%"
@@ -42,5 +39,4 @@ function updateNow() {
     if (next) {
         next.querySelector('span').style.height = "70%";
     }
-
 }

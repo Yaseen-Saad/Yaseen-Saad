@@ -4,8 +4,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             const quote = event.target;
             const quoteText = quote.innerText;
             const quoteDescription = event.target.getAttribute("data-quote-description")
-
-            // Get the bolded quote section
             const boldedQuote = document.querySelector('#bolded-quote');
             const boldedQuoteText = boldedQuote.querySelector('h2');
             const quoteDescriptionText = boldedQuote.querySelector('p');
@@ -15,7 +13,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             quoteDescriptionText.innerHTML = quoteDescription;
             overlay.style.opacity = '1';
             overlay.style.pointerEvents = 'auto';
-            boldedQuote.style.width = '80vw'; // Expand to normal size
+            boldedQuote.style.width = '80vw';
             boldedQuote.style.padding = '20px';
         });
     });
