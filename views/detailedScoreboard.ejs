@@ -101,31 +101,3 @@
   </script>
 </body>
 </html>
-
-
-<!-- 
-    fetch('http://localhost:3000/question/' + document.getElementById("gamedata").innerText + "/", {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-      })
-      .then(response => response.json())
-      .then(data => console.log(data));
-    const button = document.getElementById('make-call');
-    button.addEventListener('click', () => {
-      const data = {
-        teamId: 219,
-        gameId: 1,
-        answer: "Xffsd"
-      }
-      console.log(JSON.stringify(data));
-
-      fetch('http://localhost:3000/answer', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-      }).then(res => res.json()).then(data => console.log(data))
-    });
